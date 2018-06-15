@@ -39,7 +39,7 @@
  
     * Setup webpack entry point and output
    
-    The initial build, will process the ```./src/index.js``` file and place the result into ```./dist/bundle.js```. In the ```webpack.config.js``` file enter the following:
+        The initial build, will process the ```./src/index.js``` file and place the result into ```./dist/bundle.js```. In the ```webpack.config.js``` file enter the following:
 
         ```
         const path = require("path")
@@ -54,29 +54,29 @@
    
     * Setup the build script
    
-    In the ```package.json``` file remove the test script, if there is one, and add a build script. The scripts section should look like the following:
+        In the ```package.json``` file remove the test script, if there is one, and add a build script. The scripts section should look like the following:
    
         ```
         ...
         "scripts": {
-                    "build": "webpack"
+             "build": "webpack"
         }
         ...
         ```
-    Now building the project can be done like this:
+        Now building the project can be done like this:
    
         ```
         npm run build
         ```
  
-                * Create a script to automatically build when a file changes
+     * Create a script to automatically build when a file changes
    
-    We can create a script that 'observes' specified directories and files, and runs the build script when a change is detected. Add a ```watch``` script to ```package.json```:
+        We can create a script that 'observes' specified directories and files, and runs the build script when a change is detected. Add a ```watch``` script to ```package.json```:
    
         ```
         ...
         "scripts": {
-                    "build": "webpack",
+            "build": "webpack",
             "watch": "webpack --w"
         }
         ...
