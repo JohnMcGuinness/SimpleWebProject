@@ -119,11 +119,11 @@
         touch .babelrc
         ```
    
-        In the ```.babelrc``` file ad the following:
+        In ```.babelrc``` enter the following:
    
         ```
         {
-                    "presets": ["env"]
+            "presets": ["env"]
         }
         ```
    
@@ -152,3 +152,24 @@
         ```
         npm install flow-bin --save-dev
         ```
+        
+        Add a flow script to ```package.json```:
+        
+        ```
+        ...
+        "scripts": {
+            "build": "webpack",
+            "watch": "webpack --w",
+            "flow": "flow"
+        }
+        ...
+        ```
+        
+        Now initialise flow:
+        
+        ```
+        npm run flow init
+        ```
+        
+        You should now have a file called ```.flowconfig``` next to ```package.json```.
+        
