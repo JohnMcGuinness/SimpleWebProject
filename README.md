@@ -40,7 +40,7 @@
     * Setup webpack entry point and output
    
     The initial build, will process the ```./src/index.js``` file and place the result into ```./dist/bundle.js```. In the ```webpack.config.js``` file enter the following:
-   
+
         ```
         const path = require("path")
 
@@ -73,14 +73,14 @@
    
     We can create a script that 'observes' specified directories and files, and runs the build script when a change is detected. Add a ```watch``` script to ```package.json```:
    
-    ```
-    ...
-    "scripts": {
-                "build": "webpack",
-        "watch": "webpack --w"
-    }
-    ...
-    ```
+        ```
+        ...
+        "scripts": {
+                    "build": "webpack",
+            "watch": "webpack --w"
+        }
+        ...
+        ```
    
     * Setup babel
    
@@ -88,7 +88,6 @@
     
     The first thing to do is to update ```webpack.config.js``` to configure webpack to run babel. In ```webpack.config.js``` add the following after the ```output``` key:
    
-    ```
     ...
                 module: {
         rules: [
@@ -105,7 +104,6 @@
         ]
     }
     ...
-    ```
    
     The next thing to do is to install the babel packages. To do that run the following command:
    
