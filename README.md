@@ -84,69 +84,71 @@
    
     * Setup babel
    
-    Babel is used to, among other things, transpile javascript 5+ into javascript 5 so that most browsers can run the project. We need to setup webpack to run babel as part of the build.
+        Babel is used to, among other things, transpile javascript 5+ into javascript 5 so that most browsers can run the project. We need to setup webpack to run babel as part of the build.
     
-    The first thing to do is to update ```webpack.config.js``` to configure webpack to run babel. In ```webpack.config.js``` add the following after the ```output``` key:
+        The first thing to do is to update ```webpack.config.js``` to configure webpack to run babel. In ```webpack.config.js``` add the following after the ```output``` key:
    
-    ...
-                module: {
-        rules: [
-            {
-                test: /.js$/,
-                exclude: /(node_modules)/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["env"]
+        ```
+        ...
+        module: {
+            rules: [
+                {
+                    test: /.js$/,
+                    exclude: /(node_modules)/,
+                    use: {
+                        loader: "babel-loader",
+                        options: {
+                            presets: ["env"]
+                        }
                     }
                 }
-            }
-        ]
-    }
-    ...
+            ]
+        }
+        ...
+        ```
    
-    The next thing to do is to install the babel packages. To do that run the following command:
+        The next thing to do is to install the babel packages. To do that run the following command:
    
-    ```
-    npm install babel-loader babel-core babel-preset-env --save-dev
-    ```
+        ```
+        npm install babel-loader babel-core babel-preset-env --save-dev
+        ```
  
-                The final thing required to setup babel, is to create a babel config file:
+        The final thing required to setup babel, is to create a babel config file:
    
-    ```
-    touch .babelrc
-    ```
+        ```
+        touch .babelrc
+        ```
    
-    In the ```.babelrc``` file ad the following:
+        In the ```.babelrc``` file ad the following:
    
-    ```
-    {
-                "presets": ["env"]
-    }
-    ```
+        ```
+        {
+                    "presets": ["env"]
+        }
+        ```
    
-    So at this point, running ```npm run build``` will result in the code in the ```src``` directory being bundled into the ```dist``` directory. The javascript in the ```dist/bundle.js``` is the javascript 5 version of the code in ```src/index.js```.
+        So at this point, running ```npm run build``` will result in the code in the ```src``` directory being bundled into the ```dist``` directory. The javascript in the ```dist/bundle.js``` is the javascript 5 version of the code in ```src/index.js```.
    
-                * Setup Flow
+    * Setup Flow
    
-    I like types. Having them is better than not having them, IMO. So I'll use Flow to get them.
+        I like types. Having them is better than not having them, IMO. So I'll use Flow to get them.
+
+        Firstly, prepare babel to strip flow types from our flow code
+
+        ```
+        npm install babel-cli babel-preset-flow --save-dev
+        ```
+    
+        Add a ```flow``` preset to ```.babelrc```
    
-                Firstly, prepare babel to strip flow types from our flow code
+        ```
+        {
+            "presets": ["env", "flow"]
+        }
+        ```
    
-    ```
-    npm install babel-cli babel-preset-flow --save-dev
-    ```
+        Now install flow:
    
-    Add a ```flow``` preset to ```.babelrc```
-   
-    ```
-    {
-                "presets": ["env", "flow"]
-    }
-    ```
-   
-    Now install flow:
-   
-    ```
-    npm install flow-bin --save-dev
-    ```
+        ```
+        npm install flow-bin --save-dev
+        ```
