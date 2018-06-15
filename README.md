@@ -37,7 +37,7 @@
     touch webpack.config.js
     ```
  
-                * Setup webpack entry point and output
+    * Setup webpack entry point and output
    
     The initial build, will process the ```./src/index.js``` file and place the result into ```./dist/bundle.js```. In the ```webpack.config.js``` file enter the following:
    
@@ -45,11 +45,11 @@
     const path = require("path")
    
     module.exports = {
-                entry: "./src/index.js"
+        entry: "./src/index.js",
         output: {
-               filename: "bundle.js"
+            filename: "bundle.js"
             path: path.join(__dirname. "dist")
-                }
+    }
     ```
    
     * Setup the build script
