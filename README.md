@@ -4,22 +4,22 @@
  
     * Create a folder to contain the project and make it the current directory
  
-    ```
-    mkdir app
-    cd app
-    ```
+         ```
+         mkdir app
+         cd app
+         ```
     * Create a directory called ```src``` to contain the code. Then create a javascript file in ```src``` called ```index.js```
  
-    ```   
-    mkdir src
-    touch index.js
-    ```
+         ```   
+         mkdir src
+         touch index.js
+         ```
  
     * Create the node ```package.json``` configuration file. Enter whatever values make sense
  
-    ```
-    npm init
-    ```
+        ```
+        npm init
+        ```
    
 2. Setup the build process
  
@@ -27,47 +27,47 @@
  
     * Install webpack
  
-    ```      
-    npm install webpack@<version> --save-dev
-    ```
+        ```      
+        npm install webpack@<version> --save-dev
+        ```
  
     * Create the webpack configuration file in the root of the project
  
-    ```  
-    touch webpack.config.js
-    ```
+        ```  
+        touch webpack.config.js
+        ```
  
     * Setup webpack entry point and output
    
     The initial build, will process the ```./src/index.js``` file and place the result into ```./dist/bundle.js```. In the ```webpack.config.js``` file enter the following:
    
-    ```
-    const path = require("path")
-   
-    module.exports = {
-        entry: "./src/index.js",
-        output: {
-            filename: "bundle.js"
-            path: path.join(__dirname. "dist")
-    }
-    ```
+        ```
+        const path = require("path")
+
+        module.exports = {
+            entry: "./src/index.js",
+            output: {
+                filename: "bundle.js"
+                path: path.join(__dirname. "dist")
+        }
+        ```
    
     * Setup the build script
    
     In the ```package.json``` file remove the test script, if there is one, and add a build script. The scripts section should look like the following:
    
-    ```
-    ...
-    "scripts": {
-                "build": "webpack"
-    }
-    ...
-    ```
+        ```
+        ...
+        "scripts": {
+                    "build": "webpack"
+        }
+        ...
+        ```
     Now building the project can be done like this:
    
-    ```
-    npm run build
-    ```
+        ```
+        npm run build
+        ```
  
                 * Create a script to automatically build when a file changes
    
