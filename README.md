@@ -4,18 +4,19 @@
  
     * Create a folder to contain the project and make it the current directory
  
-         ```
+         <code><pre>
          mkdir app
          cd app
-         ```
-    * Create a directory called ```src``` to contain the code. Then create a javascript file in ```src``` called ```index.js```
+         </pre></code>
+
+    * Create a directory called `src` to contain the code. Then create a javascript file in `src` called `index.js`
  
          ```   
          mkdir src
          touch index.js
          ```
  
-    * Create the node ```package.json``` configuration file. Enter whatever values make sense
+    * Create the node `package.json` configuration file. Enter whatever values make sense
  
         ```
         npm init
@@ -39,7 +40,7 @@
  
     * Setup webpack entry point and output
    
-        The initial build, will process the ```./src/index.js``` file and place the result into ```./dist/bundle.js```. In the ```webpack.config.js``` file enter the following:
+        The initial build, will process the `./src/index.js` file and place the result into `./dist/bundle.js`. In the `webpack.config.js` file enter the following:
 
         ```
         const path = require("path")
@@ -56,7 +57,7 @@
    
     * Setup the build script
    
-        In the ```package.json``` file remove the test script, if there is one, and add a build script. The scripts section should look like the following:
+        In the `package.json` file remove the test script, if there is one, and add a build script. The scripts section should look like the following:
    
         ```
         ...
@@ -73,7 +74,7 @@
  
      * Create a script to automatically build when a file changes
    
-        We can create a script that 'observes' specified directories and files, and runs the build script when a change is detected. Add a ```watch``` script to ```package.json```:
+        We can create a script that 'observes' specified directories and files, and runs the build script when a change is detected. Add a `watch` script to `package.json`:
    
         ```
         ...
@@ -88,7 +89,7 @@
    
         Babel is used to, among other things, transpile javascript 5+ into javascript 5 so that most browsers can run the project. We need to setup webpack to run babel as part of the build.
     
-        The first thing to do is to update ```webpack.config.js``` to configure webpack to run babel. In ```webpack.config.js``` add the following after the ```output``` key:
+        The first thing to do is to update `webpack.config.js` to configure webpack to run babel. In `webpack.config.js` add the following after the `output` key:
    
         ```
         ...
@@ -121,7 +122,7 @@
         touch .babelrc
         ```
    
-        In ```.babelrc``` enter the following:
+        In `.babelrc` enter the following:
    
         ```
         {
@@ -129,7 +130,7 @@
         }
         ```
    
-        So at this point, running ```npm run build``` will result in the code in the ```src``` directory being bundled into the ```dist``` directory. The javascript in the ```dist/bundle.js``` is the javascript 5 version of the code in ```src/index.js```.
+        So at this point, running `npm run build` will result in the code in the `src` directory being bundled into the `dist` directory. The javascript in the `dist/bundle.js` is the javascript 5 version of the code in `src/index.js`.
    
     * Setup Flow
    
@@ -141,7 +142,7 @@
         npm install babel-cli babel-preset-flow --save-dev
         ```
     
-        Add a ```flow``` preset to ```.babelrc```
+        Add a `flow` preset to `.babelrc`
    
         ```
         {
@@ -155,7 +156,7 @@
         npm install flow-bin --save-dev
         ```
         
-        Add a flow script to ```package.json```:
+        Add a flow script to `package.json`:
         
         ```
         ...
@@ -173,5 +174,5 @@
         npm run flow init
         ```
         
-        You should now have a file called ```.flowconfig``` next to ```package.json```.
+        You should now have a file called `.flowconfig` next to `package.json`.
         
