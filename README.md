@@ -3,9 +3,9 @@
 1. Initial setup
  
     * Create a folder to contain the project and make it the current directory
-    
-    <pre><code>mkdir app
-    cd app</code></pre>
+
+        mkdir app
+        cd app
 
     * Create a directory called `src` to contain the code. Then create a javascript file in `src` called `index.js`
  
