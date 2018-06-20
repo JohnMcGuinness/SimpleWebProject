@@ -4,54 +4,45 @@
  
     * Create a folder to contain the project and make it the current directory
 
-        mkdir app
-        cd app
+
+          mkdir app
+          cd app
 
     * Create a directory called `src` to contain the code. Then create a javascript file in `src` called `index.js`
  
-         `
-         mkdir src
-         touch index.js
-         `
+          mkdir src
+          touch index.js
  
     * Create the node `package.json` configuration file. Enter whatever values make sense
  
-        ```
-        npm init
-        ```
+          npm init
    
 2. Setup the build process
  
    The project will be built using webpack.
  
     * Install webpack
- 
-        ```      
-        npm install webpack@<version> --save-dev
-        ```
+        
+          npm install webpack@<version> --save-dev
  
     * Create the webpack configuration file in the root of the project
  
-        ```  
-        touch webpack.config.js
-        ```
+          touch webpack.config.js
  
     * Setup webpack entry point and output
    
         The initial build, will process the `./src/index.js` file and place the result into `./dist/bundle.js`. In the `webpack.config.js` file enter the following:
 
-        ```
-        const path = require("path")
+          const path = require("path")
 
-        module.exports = {
-            mode: "development",
-            entry: "./src/index.js",
-            output: {
-                filename: "bundle.js",
-                path: path.join(__dirname, "dist")
-            }
-        }
-        ```
+          module.exports = {
+              mode: "development",
+              entry: "./src/index.js",
+              output: {
+                  filename: "bundle.js",
+                  path: path.join(__dirname, "dist")
+              }
+          }
    
     * Setup the build script
    
