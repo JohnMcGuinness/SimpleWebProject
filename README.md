@@ -48,31 +48,26 @@
    
         In the `package.json` file remove the test script, if there is one, and add a build script. The scripts section should look like the following:
    
-        ```
-        ...
-        "scripts": {
-             "build": "webpack"
-        }
-        ...
-        ```
+          ...
+          "scripts": {
+               "build": "webpack"
+          }
+          ...
+
         Now building the project can be done like this:
    
-        ```
-        npm run build
-        ```
+          npm run build
  
      * Create a script to automatically build when a file changes
    
         We can create a script that 'observes' specified directories and files, and runs the build script when a change is detected. Add a `watch` script to `package.json`:
    
-        ```
-        ...
-        "scripts": {
-            "build": "webpack",
-            "watch": "webpack --w"
-        }
-        ...
-        ```
+           ...
+           "scripts": {
+               "build": "webpack",
+               "watch": "webpack --w"
+           }
+           ...
    
     * Setup babel
    
@@ -80,44 +75,36 @@
     
         The first thing to do is to update `webpack.config.js` to configure webpack to run babel. In `webpack.config.js` add the following after the `output` key:
    
-        ```
-        ...
-        module: {
-            rules: [
-                {
-                    test: /.js$/,
-                    exclude: /(node_modules)/,
-                    use: {
-                        loader: "babel-loader",
-                        options: {
-                            presets: ["env"]
-                        }
-                    }
-                }
-            ]
-        }
-        ...
-        ```
+          ...
+          module: {
+              rules: [
+                  {
+                      test: /.js$/,
+                      exclude: /(node_modules)/,
+                      use: {
+                          loader: "babel-loader",
+                          options: {
+                              presets: ["env"]
+                          }
+                      }
+                  }
+              ]
+          }
+          ...
    
         The next thing to do is to install the babel packages. To do that run the following command:
    
-        ```
-        npm install babel-loader babel-core babel-preset-env --save-dev
-        ```
+          npm install babel-loader babel-core babel-preset-env --save-dev
  
         The final thing required to setup babel, is to create a babel config file:
    
-        ```
-        touch .babelrc
-        ```
+          touch .babelrc
    
         In `.babelrc` enter the following:
    
-        ```
-        {
-            "presets": ["env"]
-        }
-        ```
+          {
+              "presets": ["env"]
+          }
    
         So at this point, running `npm run build` will result in the code in the `src` directory being bundled into the `dist` directory. The javascript in the `dist/bundle.js` is the javascript 5 version of the code in `src/index.js`.
    
@@ -127,41 +114,31 @@
 
         Firstly, prepare babel to strip flow types from our flow code
 
-        ```
-        npm install babel-cli babel-preset-flow --save-dev
-        ```
+          npm install babel-cli babel-preset-flow --save-dev
     
         Add a `flow` preset to `.babelrc`
    
-        ```
-        {
-            "presets": ["env", "flow"]
-        }
-        ```
+          {
+              "presets": ["env", "flow"]
+          }
    
         Now install flow:
    
-        ```
-        npm install flow-bin --save-dev
-        ```
+          npm install flow-bin --save-dev
         
         Add a flow script to `package.json`:
         
-        ```
-        ...
-        "scripts": {
-            "build": "webpack",
-            "watch": "webpack --w",
-            "flow": "flow"
-        }
-        ...
-        ```
+          ...
+          "scripts": {
+              "build": "webpack",
+              "watch": "webpack --w",
+              "flow": "flow"
+          }
+          ...
         
         Now initialise flow:
         
-        ```
-        npm run flow init
-        ```
+          npm run flow init
         
         You should now have a file called `.flowconfig` next to `package.json`.
         
